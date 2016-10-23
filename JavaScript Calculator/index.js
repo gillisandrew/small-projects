@@ -127,3 +127,11 @@ var calculator = (function($) {
     public.eval = evaluate;
     return public;
 })(jQuery);
+
+$(document).ready(function() {
+    $('button[data-enter]').on('click', function(e) {
+        var v = $(this).data('enter');
+        calculator.enter(v);
+        return console.log(v)
+    })
+});
