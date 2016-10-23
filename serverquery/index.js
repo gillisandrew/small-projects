@@ -201,6 +201,7 @@ $(document).ready(function() {
                 return v;
             }
         }));
+        $('#mc_icon').attr('src', data.icon_url);
         $('#mc_name').html(data.name);
         $('#mc_motd').html(data.motd);
         $('#mc_version').html(data.version);
