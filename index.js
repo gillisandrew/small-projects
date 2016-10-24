@@ -53,14 +53,14 @@ var smallprojects = (function() {
             console.log(projects);
             $('#projects li.active').removeClass('active');
             $(this).parent('li').addClass('active');
-            $('#code pre').html(projects[$('#projects .active').data('project')][$('#code .active').data('content')]);
+            $('#code pre').html(projects[$('#projects .active a').data('project')][$('#code .active').data('content')]);
             Prism.highlightAll();
         });
         $('#code li a').on('click', function() {
             console.log(projects);
             $('#code li.active').removeClass('active');
             $(this).parent('li').addClass('active');
-            $('#code pre').html(projects[$('#projects .active').data('project')][$('#code .active').data('content')]);
+            $('#code pre').html(projects[$('#projects .active a').data('project')][$('#code .active').data('content')]);
             Prism.highlightAll();
         });
     });
