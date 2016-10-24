@@ -46,30 +46,37 @@ var smallprojects = (function() {
         }
     }
     function addItem(i) {
-        var item = '<li role="presentation"><a data-project="' + i + '" href="#'+ projects[i].directory +'">' + projects[i].title + '</a></li>';
+        var item = '<li role="presentation"><a data-project="' + i + '" href="#'+ i +'">' + projects[i].title + '</a></li>';
         $(document).ready(function() {
             $(nav).append(item);
         })
+    }
+    function setPre() {
+        $('#code pre').html(projects[$('#projects .active a').data('project')][$('#code .active').data('content')]);
     }
 
     for(var i = 0; i<projects.length; i++) {
         addItem(i);
         fetchContent(i);
     }
+    
     $(document).ready(function() {
         $('#projects a').on('click', function() {
             console.log(projects);
             $('#projects li.active').removeClass('active');
             $(this).parent('li').addClass('active');
-            $('#code pre').html(projects[$('#projects .active a').data('project')][$('#code .active').data('content')]);
-            Prism.highlightAll();
+            setPre();
         });
         $('#code li a').on('click', function() {
             console.log(projects);
             $('#code li.active').removeClass('active');
             $(this).parent('li').addClass('active');
-            $('#code pre').html(projects[$('#projects .active a').data('project')][$('#code .active').data('content')]);
-            Prism.highlightAll();
+            setPre()
         });
+        if(window.location.hash) {
+            $('#projects a[data-project="' + window.location.hash.slice(1, window.location.hash.length) + '"]').click();
+        }else {
+            $('#projects a')[0].click();
+        }
     });
 })();
