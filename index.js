@@ -31,10 +31,10 @@ var smallprojects = (function() {
         }
     });
 $(document).ready(function() {
-    $(nav + ' li a').on('click', function(e) {
+    $('#projects li a').on('click', function() {
         console.log(projects);
-        $(nav + ' .active').removeClass('active');
-        $(e).addClass('active');
+        $('#projects .active').removeClass('active');
+        $(this).addClass('active');
         $('#code pre').html(projects[$(this).data('project')][$('#code .active').data('content')])
     });
 });
