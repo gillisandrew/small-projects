@@ -45,7 +45,7 @@ var smallprojects = (function() {
             $(this).parent('li').addClass('active');
 
             $('#code pre').html(htmlEncode(projects[$(this).data('project')][$('#code .active').data('content')]));
-            $.get('vendor/js/prism.js?=' + Date().getTime());
+            $.get('vendor/js/prism.js?=' + new Date().getTime());
         });
         $('#code a[data-project]').on('click', function() {
             console.log(projects);
@@ -53,7 +53,7 @@ var smallprojects = (function() {
             $(this).parent('li').addClass('active');
 
             $('#code pre').html(htmlEncode(projects[$(this).data('project')][$('#code .active').data('content')]));
-            $.get('vendor/js/prism.js?=' + Date().getTime());
+            $.get('vendor/js/prism.js?=' + new Date().getTime());
         });
     });
 })();
