@@ -88,7 +88,7 @@ var weather = (function() {
     function updateWeather() {
         $('#spinner').show();
         $('#icon').hide()
-        $.getJSON('//api.openweathermap.org/data/2.5/weather?lat=' + pos.lat + '&lon=' + pos.lon + '&APPID=' + app_id, function(json) {
+        $.getJSON('http://api.openweathermap.org/data/2.5/weather?lat=' + pos.lat + '&lon=' + pos.lon + '&APPID=' + app_id, function(json) {
             var data = {};
             data.city = json.name + ', ' + json.sys.country;
             data.temp = temperature(json.main.temp);
@@ -111,7 +111,9 @@ var weather = (function() {
 
 $(document).ready(function() {
     if(window.location.protocol === 'https:') {
-        alert('Unfortunately open weather maps does not allow api calls over https. check out this app from <a href="http://google.com">codepen.io</a>')
+        if(window.confirm('Unfortunately open weather maps does not allow api calls over https. Are you OK being redirected to codepen.io?')) {
+            window.location.replace('http://codepen.io/');
+        }
     }
     $('#C').on('click', function() {
         weather.units('C');
