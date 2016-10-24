@@ -1,57 +1,68 @@
 <!DOCUMENT html>
 <html>
-    <head>
-        <title>Simon Game | gillisandrew</title>
-        <script src="../vendor/js/jquery-3.1.1.min.js" type="text/javascript"></script>
-        <script src="../vendor/js/bootstrap.min.js" type="text/javascript"></script>
-        <script src="index.js" type="text/javascript"></script>
-        <link rel="stylesheet" href="../vendor/css/bootstrap.min.css" type="text/css" />
-        <link rel="stylesheet" href="index.css" type="text/css" />
-    </head>
-    <body>
-        <div class="container">
-            <div class="row">
-                <div class="col-md-8">
-                    <div class="well main_buttons">
-                        <svg version="1.1"
-                            xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:a="http://ns.adobe.com/AdobeSVGViewerExtensions/3.0/"
-                            x="0px" y="0px" viewBox="0 0 1200 1200"
-                            xml:space="preserve">
-                        <style type="text/css">
-                            
-                        </style>
-                        <defs>
-                        </defs>
-                        <circle class="simon-bg" cx="600" cy="600" r="600"/>
-                        <g>
-                            <path class="red sector" data-index="0" d="M637.5,587.5h511.2c14.5,0,25.9-12.3,24.9-26.8C1154.4,274.5,925.5,45.6,639.3,26.3
-                                c-14.5-1-26.8,10.4-26.8,24.9v511.2C612.5,576.3,623.7,587.5,637.5,587.5z"/>
-                            <path class="orange sector" data-index="1" d="M562.5,612.5H51.3c-14.5,0-25.9,12.3-24.9,26.8c19.3,286.3,248.1,515.1,534.4,534.4
-                                c14.5,1,26.8-10.4,26.8-24.9V637.5C587.5,623.7,576.3,612.5,562.5,612.5z"/>
-                            <path class="green sector" data-index="2" d="M587.5,562.5V51.3c0-14.5-12.3-25.9-26.8-24.9C274.5,45.6,45.6,274.5,26.3,560.7c-1,14.5,10.4,26.8,24.9,26.8
-                                h511.2C576.3,587.5,587.5,576.3,587.5,562.5z"/>
-                            <path class="blue sector" data-index="3" d="M612.5,637.5v511.2c0,14.5,12.3,25.9,26.8,24.9c286.3-19.3,515.1-248.1,534.4-534.4
-                                c1-14.5-10.4-26.8-24.9-26.8H637.5C623.7,612.5,612.5,623.7,612.5,637.5z"/>
-                        </g>
-                        </svg>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <h1 id="step">--</h1>
-                    <button class="btn btn-success" id="start">Start</button>
-                    <button class="btn btn-primary" id="reset">Reset</button>
-                    <br />
-                    <br />  
-                    <label>Strict Mode</label>
-                    <br />
-                    <div id="strict_toggle" class="btn-group" role="group">
-                        <button data-strict="true" type="button" class="btn btn-success btn-sm">on</button>
-                        <button data-strict="false" type="button" class="btn btn-danger active btn-sm">off</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-        
-        
-    </body>
+
+<head>
+	<title>Simon Game | gillisandrew</title>
+	<script src="../vendor/js/jquery-3.1.1.min.js" type="text/javascript"></script>
+	<script src="../vendor/js/bootstrap.min.js" type="text/javascript"></script>
+	<script src="index.js" type="text/javascript"></script>
+	<link rel="stylesheet" href="../vendor/css/bootstrap.min.css" type="text/css" />
+	<link rel="stylesheet" href="index.css" type="text/css" />
+</head>
+
+<body>
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12">
+				<h1>Simon Game</h1>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-8">
+				<div class="well main_buttons">
+					<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:a="http://ns.adobe.com/AdobeSVGViewerExtensions/3.0/"
+						x="0px" y="0px" viewBox="0 0 1200 1200" xml:space="preserve">
+						<style type="text/css">
+
+						</style>
+						<defs>
+						</defs>
+						<circle class="simon-bg" cx="600" cy="600" r="600" />
+						<g>
+							<path class="red sector" data-index="0" d="M637.5,587.5h511.2c14.5,0,25.9-12.3,24.9-26.8C1154.4,274.5,925.5,45.6,639.3,26.3
+                                c-14.5-1-26.8,10.4-26.8,24.9v511.2C612.5,576.3,623.7,587.5,637.5,587.5z" />
+							<path class="orange sector" data-index="1" d="M562.5,612.5H51.3c-14.5,0-25.9,12.3-24.9,26.8c19.3,286.3,248.1,515.1,534.4,534.4
+                                c14.5,1,26.8-10.4,26.8-24.9V637.5C587.5,623.7,576.3,612.5,562.5,612.5z" />
+							<path class="green sector" data-index="2" d="M587.5,562.5V51.3c0-14.5-12.3-25.9-26.8-24.9C274.5,45.6,45.6,274.5,26.3,560.7c-1,14.5,10.4,26.8,24.9,26.8
+                                h511.2C576.3,587.5,587.5,576.3,587.5,562.5z" />
+							<path class="blue sector" data-index="3" d="M612.5,637.5v511.2c0,14.5,12.3,25.9,26.8,24.9c286.3-19.3,515.1-248.1,534.4-534.4
+                                c1-14.5-10.4-26.8-24.9-26.8H637.5C623.7,612.5,612.5,623.7,612.5,637.5z" />
+						</g>
+					</svg>
+				</div>
+			</div>
+			<div class="col-md-4">
+				<h1><span id="step">--</span>&nbsp;Steps</h1>
+				<button class="btn btn-block btn-success btn-lg" id="start">
+                    <i class="fa fa-play fa-2x"></i><br />
+                    Start
+                </button>
+				<br />
+				<button class="btn btn-block btn-primary" id="reset">
+                    <i class="fa fa-history fa-2x"></i><br />
+                    Reset
+                </button>
+				<br />
+				<br />
+				<label>Strict Mode</label>
+				<br />
+				<div id="strict_toggle" class="btn-group" role="group">
+					<button data-strict="true" type="button" class="btn btn-success btn-sm">on</button>
+					<button data-strict="false" type="button" class="btn btn-danger active btn-sm">off</button>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+
 </html>
