@@ -13,14 +13,26 @@ var smallprojects = (function() {
         "title": "Random Quote Machine",
         "directory": "random-quote"
     }];
-    function htmlEncode(value){
-        return Prism.highlight($('<div/>').text(value).html());
+    function htmlEncode(value, content){
+        var lang = 'markup';
+        switch(content) {
+            case 'html':
+                lang = 'markup';
+                break;
+            case 'css':
+                lang ='css';
+                break;
+            case 'js':
+                lang= 'javascript'
+                break;
+        }
+        return Prism.highlight(value, lang);
     }
     function fetchContent(i) {
         for(var j=0; j<resources.length; j++) {
             (function(i, j) {
                 $.get(projects[i].directory + '/index.' + resources[j], function(res) {
-                    projects[i][resources[j]] = htmlEncode(res);
+                    projects[i][resources[j]] = htmlEncode(res, resources[j]);
                 });
             })(i, j)
         }
