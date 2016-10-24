@@ -44,14 +44,14 @@ var smallprojects = (function() {
             $('#projects li.active').removeClass('active');
             $(this).parent('li').addClass('active');
 
-            $('#code pre').html(Prism.highlight(htmlEncode(projects[$(this).data('project')][$('#code .active').data('content')])));
+            $('#code pre').html(Prism.highlight(htmlEncode(projects[$(this).data('project')][$('#code .active').data('content')])), Prism.languages.markup);
         });
         $('#code a[data-project]').on('click', function() {
             console.log(projects);
             $('#code li.active').removeClass('active');
             $(this).parent('li').addClass('active');
 
-            $('#code pre').html(Prism.highlight(htmlEncode(projects[$(this).data('project')][$('#code .active').data('content')])));
+            $('#code pre').html(Prism.highlight(htmlEncode(projects[$(this).data('project')][$('#code .active').data('content')])), Prism.languages.markup);
         });
     });
 })();
