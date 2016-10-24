@@ -88,7 +88,7 @@ var weather = (function() {
     function updateWeather() {
         $('#spinner').show();
         $('#icon').hide()
-        $.getJSON('http://api.openweathermap.org/data/2.5/weather?lat=' + pos.lat + '&lon=' + pos.lon + '&APPID=' + app_id, function(json) {
+        $.getJSON('//api.openweathermap.org/data/2.5/weather?lat=' + pos.lat + '&lon=' + pos.lon + '&APPID=' + app_id, function(json) {
             var data = {};
             data.city = json.name + ', ' + json.sys.country;
             data.temp = temperature(json.main.temp);
