@@ -1,5 +1,5 @@
 var smallprojects = (function() {
-    var nav = "#projects";
+    var nav = '#projects';
     var resources = ['html', 'js', 'css'];
     var projects = [{
         "title": "Server Information",
@@ -24,7 +24,9 @@ var smallprojects = (function() {
 
     for(var i = 0; i<projects.length; i++) {
         var item = '<li role="presentation"><a data-project="' + i + '" href="#'+ projects[i].directory +'">' + projects[i].title + '</a></li>';
-        $(nav).append(item);
+        $(document).ready(function() {
+            $(nav).append(item);
+        })
         fetchContent(i);
         
     }
