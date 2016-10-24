@@ -14,8 +14,7 @@ var smallprojects = (function() {
         "directory": "random-quote"
     }];
     function htmlEncode(value){
-        // return $('<div/>').text(value).html();
-        return value;
+        return Prism.highlight($('<div/>').text(value).html());
     }
     function fetchContent(i) {
         for(var j=0; j<resources.length; j++) {
