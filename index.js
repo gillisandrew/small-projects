@@ -19,7 +19,7 @@ var smallprojects = (function() {
         $(nav).append(item);
 
         for(var j=0; j<resources.length; j++) {
-            $.getJSON(projects[i].directory + '/index.' + resources[j], function(res) {
+            $.getJSON(projects[i].directory + '/index.' + resources[j], false, function(res) {
                 console.log(res);
             });
         }
