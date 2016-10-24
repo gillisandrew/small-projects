@@ -1,0 +1,22 @@
+.weathericon {
+  font-size: 180px;
+}
+.windicon {
+  font-size: 15pt;
+  position: relative;
+  top: 2pt;
+}
+.well {
+  position: relative;
+}
+.weather .btn-group{
+  position: absolute;
+  right: 10px;
+  top: 10px;
+}
+.weather h2 {
+  margin-top: 30px;
+}
+#spinner {
+    line-height: 180px;
+}
