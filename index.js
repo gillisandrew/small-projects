@@ -52,7 +52,7 @@ var smallprojects = (function() {
         })
     }
     function setPre() {
-        $('#demo').href = projects[$('#projects .active a').data('project')].directory;
+        $('#demo').href = projects[$('#projects .active a').data('project')].directory + '/';
         $('#code pre').html(projects[$('#projects .active a').data('project')][$('#code .active').data('content')]);
     }
 
