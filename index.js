@@ -38,7 +38,7 @@ var smallprojects = (function() {
                         return text;
                     }
                     },
-                    success: function() {
+                    success: function(res) {
                         projects[i][resources[j]] = htmlEncode(res, resources[j]);
                     }
                 });
