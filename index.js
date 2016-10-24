@@ -17,15 +17,9 @@ var smallprojects = (function() {
         var item = '<li role="presentation"><a data-project="' + i + '" href="#'+ projects[i].directory +'">' + projects[i].title + '</a></li>';
         $(nav).append(item)
 
-        $.getJSON(projects[i].directory + '/index.html', function(html) {
-            projects[i].HTML = html;
-        })
-        $.getJSON(projects[i].directory + '/index.js', function(js) {
-            projects[i].JS = js;
-        })
-        $.getJSON(projects[i].directory + '/index.js', function(css) {
-            projects[i].CSS = css;
-        });
+        project[i]['HTML'] = $.getJSON(projects[i].directory + '/index.html').responseText;
+        project[i]['JS'] = $.getJSON(projects[i].directory + '/index.js').responseText;
+        project[i]['CSS'] = $.getJSON(projects[i].directory + '/index.css').responseText;
     }
     $(document).ready(function() {
         
