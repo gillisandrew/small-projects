@@ -31,8 +31,16 @@ var smallprojects = (function() {
     function fetchContent(i) {
         for(var j=0; j<resources.length; j++) {
             (function(i, j) {
-                $.get(projects[i].directory + '/index.' + resources[j], function(res) {
-                    projects[i][resources[j]] = htmlEncode(res, resources[j]);
+                $.ajax({
+                    url: projects[i].directory + '/index.' + resources[j],
+                    converters: {
+                    'text script': function (text) {
+                        return text;
+                    }
+                    },
+                    success: function() {
+                        projects[i][resources[j]] = htmlEncode(res, resources[j]);
+                    }
                 });
             })(i, j)
         }
