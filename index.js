@@ -14,6 +14,13 @@ var smallprojects = (function() {
         "directory": "random-quote"
     }]
 
+    $.getJSON('projects.json', function(json) {
+        projects = json;
+        $(projects).each(projects, function(i, project, item) {
+            var item = '<li role="presentation"><a data-project="' + i + '" href="#'+ project.directory +'">' + project.title + '</a></li>';
+            $(nav).append(item)
+        });
+    });
     for(var i = 0; i<projects.length; i++) {
         $.getJSON(projects[i].directory + '/index.html', function(html) {
             projects[i]["HTML"] = html;
@@ -25,16 +32,12 @@ var smallprojects = (function() {
             projects[i]["CSS"] = css;
         })
     }
-
+$(document).ready(function() {
     $(nav + ' li a').on('click', function() {
         $('#code pre').html(projects[$(this).data('project')][$('#code .active').data('content')])
     });
-
-$(document).ready(function() {
-    $.each(projects, function(i, project, item) {
-        var item = '<li role="presentation"><a data-project="' + i + '" href="#'+ project.directory +'">' + project.title + '</a></li>';
-        $(nav).append(item)
-    });
+    console.log(projects)
 });
+    
     
 })();
