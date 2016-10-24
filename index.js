@@ -1,17 +1,17 @@
 var smallprojects = (function() {
     var nav = "#projects";
-
+    var projects;
     $.getJSON('projects.json', function(json) {
         for(var i = 0; i<json.length; i++) {
             var item = '<li role="presentation"><a data-project="' + i + '" href="#'+ json[i].directory +'">' + json[i].title + '</a></li>';
             $(nav).append(item)
-            $.getJSON(projects[i].directory + '/index.html', function(html) {
+            $.getJSON(json[i].directory + '/index.html', function(html) {
                 json[i]["HTML"] = html;
             })
-            $.getJSON(projects[i].directory + '/index.js', function(js) {
+            $.getJSON(json[i].directory + '/index.js', function(js) {
                 json[i]["JS"] = js;
             })
-            $.getJSON(projects[i].directory + '/index.js', function(css) {
+            $.getJSON(json[i].directory + '/index.js', function(css) {
                 json[i]["CSS"] = css;
             })
         }
