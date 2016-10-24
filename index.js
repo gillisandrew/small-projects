@@ -52,8 +52,10 @@ var smallprojects = (function() {
         })
     }
     function setPre() {
-        $('#demo').attr('href', projects[$('#projects .active a').data('project')].directory + '/');
-        $('#code pre').html(projects[$('#projects .active a').data('project')][$('#code .active').data('content')]);
+        $(document).ready(function() {
+            $('#demo').attr('href', projects[$('#projects .active a').data('project')].directory + '/');
+            $('#code pre').html(projects[$('#projects .active a').data('project')][$('#code .active').data('content')]);
+        });
     }
 
     for(var i = 0; i<projects.length; i++) {
