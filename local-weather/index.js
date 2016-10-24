@@ -110,6 +110,9 @@ var weather = (function() {
 })();
 
 $(document).ready(function() {
+    if(window.location.protocol === 'https:') {
+        alert('Unfortunately open weather maps does not allow api calls over https. check out this app from <a href="http://google.com">codepen.io</a>')
+    }
     $('#C').on('click', function() {
         weather.units('C');
         $('#C').addClass('active');
