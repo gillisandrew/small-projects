@@ -16,10 +16,10 @@ var smallprojects = (function() {
 
     $.getJSON('projects.json', function(json) {
         projects = json;
-        $(projects).each(projects, function(i, project, item) {
+        for(var i = o; i<json.length; i++) {
             var item = '<li role="presentation"><a data-project="' + i + '" href="#'+ project.directory +'">' + project.title + '</a></li>';
             $(nav).append(item)
-        });
+        }
     });
     for(var i = 0; i<projects.length; i++) {
         $.getJSON(projects[i].directory + '/index.html', function(html) {
