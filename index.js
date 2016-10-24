@@ -16,11 +16,11 @@ var smallprojects = (function() {
 
     function fetchContent(i) {
         for(var j=0; j<resources.length; j++) {
-            function(i) {
+            (function(i, j) {
                 $.get(projects[i].directory + '/index.' + resources[j], function(res) {
                     projects[i][resources[j]] = res;
                 });
-            }
+            })(i, j)
         }
     }
     function addItem(i) {
