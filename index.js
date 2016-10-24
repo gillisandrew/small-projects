@@ -21,14 +21,16 @@ var smallprojects = (function() {
             });
         }
     }
-
-    for(var i = 0; i<projects.length; i++) {
+    function addItem(i) {
         var item = '<li role="presentation"><a data-project="' + i + '" href="#'+ projects[i].directory +'">' + projects[i].title + '</a></li>';
         $(document).ready(function() {
             $(nav).append(item);
         })
+    }
+
+    for(var i = 0; i<projects.length; i++) {
+        addItem(i);
         fetchContent(i);
-        
     }
     $(document).ready(function() {
         $('#projects a').on('click', function() {
