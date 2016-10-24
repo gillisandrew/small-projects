@@ -16,6 +16,7 @@ var smallprojects = (function() {
             })
         }
         projects = json;
+        console.log(projects);
     });
     $(document).ready(function() {
         $('#projects li a').on('click', function() {
