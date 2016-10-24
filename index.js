@@ -81,5 +81,8 @@ var smallprojects = (function() {
         }else {
             $('#projects a')[0].click();
         }
+        window.onhashchange = function() {
+            $('#projects a[data-project="' + window.location.hash.slice(1, window.location.hash.length) + '"]').click();
+        }
     });
 })();
