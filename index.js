@@ -14,15 +14,13 @@ var smallprojects = (function() {
         "directory": "random-quote"
     }];
     function htmlEncode(value){
-        //create a in-memory div, set it's inner text(which jQuery automatically encodes)
-        //then grab the encoded contents back out.  The div never exists on the page.
         return $('<div/>').text(value).html();
     }
     function fetchContent(i) {
         for(var j=0; j<resources.length; j++) {
             (function(i, j) {
                 $.get(projects[i].directory + '/index.' + resources[j], function(res) {
-                    projects[i][resources[j]] = res;
+                    projects[i][resources[j]] = htmlEncode(res);
                 });
             })(i, j)
         }
@@ -43,15 +41,13 @@ var smallprojects = (function() {
             console.log(projects);
             $('#projects li.active').removeClass('active');
             $(this).parent('li').addClass('active');
-
-            $('#code pre').html(Prism.highlight(htmlEncode(projects[$(this).data('project')][$('#code .active').data('content')])), Prism.languages.markup);
+            $('#code pre').html(Prism.highlight(projects[$(this).data('project')][$('#code .active').data('content')]), Prism.languages.markup);
         });
         $('#code a[data-project]').on('click', function() {
             console.log(projects);
             $('#code li.active').removeClass('active');
             $(this).parent('li').addClass('active');
-
-            $('#code pre').html(Prism.highlight(htmlEncode(projects[$(this).data('project')][$('#code .active').data('content')])), Prism.languages.markup);
+            $('#code pre').html(Prism.highlight(projects[$(this).data('project')][$('#code .active').data('content')]), Prism.languages.markup);
         });
     });
 })();
