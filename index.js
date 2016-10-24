@@ -33,8 +33,8 @@ var smallprojects = (function() {
 $(document).ready(function() {
     $('#projects li a').on('click', function() {
         console.log(projects);
-        $('#projects .active').removeClass('active');
-        $(this).addClass('active');
+        $('#projects li.active').removeClass('active');
+        $(this).parent('li').addClass('active');
         $('#code pre').html(projects[$(this).data('project')][$('#code .active').data('content')])
     });
 });
