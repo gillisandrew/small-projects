@@ -56,7 +56,7 @@ var smallprojects = (function() {
             $('#code pre').html(projects[$('#projects .active').data('project')][$('#code .active').data('content')]);
             Prism.highlightAll();
         });
-        $('#code li[data-content] a').on('click', function() {
+        $('#code li a').on('click', function() {
             console.log(projects);
             $('#code li.active').removeClass('active');
             $(this).parent('li').addClass('active');
