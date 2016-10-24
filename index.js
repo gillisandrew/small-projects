@@ -19,21 +19,21 @@ var smallprojects = (function() {
         for(var i = 0; i<json.length; i++) {
             var item = '<li role="presentation"><a data-project="' + i + '" href="#'+ json[i].directory +'">' + json[i].title + '</a></li>';
             $(nav).append(item)
+            $.getJSON(projects[i].directory + '/index.html', function(html) {
+                projects[i]["HTML"] = html;
+            })
+            $.getJSON(projects[i].directory + '/index.js', function(js) {
+                projects[i]["JS"] = js;
+            })
+            $.getJSON(projects[i].directory + '/index.js', function(css) {
+                projects[i]["CSS"] = css;
+            })
         }
     });
-    for(var i = 0; i<projects.length; i++) {
-        $.getJSON(projects[i].directory + '/index.html', function(html) {
-            projects[i]["HTML"] = html;
-        })
-        $.getJSON(projects[i].directory + '/index.js', function(js) {
-            projects[i]["JS"] = js;
-        })
-        $.getJSON(projects[i].directory + '/index.js', function(css) {
-            projects[i]["CSS"] = css;
-        })
-    }
 $(document).ready(function() {
     $(nav + ' li a').on('click', function() {
+        $(nav + ' .active').removeClass('active');
+        $(this).addClass('active');
         $('#code pre').html(projects[$(this).data('project')][$('#code .active').data('content')])
     });
     console.log(projects)
