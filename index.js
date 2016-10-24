@@ -41,13 +41,15 @@ var smallprojects = (function() {
             console.log(projects);
             $('#projects li.active').removeClass('active');
             $(this).parent('li').addClass('active');
-            $('#code pre').html(Prism.highlight(projects[$(this).data('project')][$('#code .active').data('content')]), Prism.languages.markup);
+            $('#code pre').html(projects[$(this).data('project')][$('#code .active').data('content')]);
+            Prism.highlightAll();
         });
         $('#code a[data-project]').on('click', function() {
             console.log(projects);
             $('#code li.active').removeClass('active');
             $(this).parent('li').addClass('active');
-            $('#code pre').html(Prism.highlight(projects[$(this).data('project')][$('#code .active').data('content')]), Prism.languages.markup);
+            $('#code pre').html(projects[$(this).data('project')][$('#code .active').data('content')]);
+            Prism.highlightAll();
         });
     });
 })();
