@@ -1,0 +1,12 @@
+[{
+    "title": "Server Information",
+    "directory": "server-information"
+},
+{
+    "title": "Simon Game",
+    "directory": "simon-game"
+},
+{
+    "title": "Random Quote Machine",
+    "directory": "random-quote"
+}];
