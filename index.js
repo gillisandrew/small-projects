@@ -31,9 +31,9 @@ var smallprojects = (function() {
         }
     });
 $(document).ready(function() {
-    $(nav + ' li a').on('click', function() {
+    $(nav + ' li a').on('click', function(e) {
         $(nav + ' .active').removeClass('active');
-        $(this).addClass('active');
+        $(e).addClass('active');
         $('#code pre').html(projects[$(this).data('project')][$('#code .active').data('content')])
     });
     console.log(projects)
