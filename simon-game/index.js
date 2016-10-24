@@ -1,6 +1,6 @@
 Simon = (function() {
     // green => 0; red => 1; blue => 2; yellow => 3;
-    var exports = {};
+    var public = {};
     var sounds = [
         new Audio('https://s3.amazonaws.com/freecodecamp/simonSound1.mp3'),
         new Audio('https://s3.amazonaws.com/freecodecamp/simonSound2.mp3'),
@@ -15,10 +15,14 @@ Simon = (function() {
 
     
     function runSequence(n) {
-        exports.ready = false;
+        public.ready = false;
+        if(cpu_sequence.length === 21) {
+            alert('Congratulation! You have reached 20 steps. The game will now reset.')
+            public.reset();
+            return public.start();
+        }
         $('.main_buttons').removeClass('failed');
-        console.log(cpu_sequence[n]);
-        $('.active').removeClass('active');
+        $('.sector.active').removeClass('active');
         $('.sector[data-index=' + cpu_sequence[n] + ']').addClass('active');
         sounds[cpu_sequence[n]].pause();
         sounds[cpu_sequence[n]].currentTime = 0;
@@ -30,16 +34,17 @@ Simon = (function() {
             }, interval)
         }else {
             setTimeout(function() {
-                $('.active').removeClass('active');
+                $('.sector.active').removeClass('active');
             }, interval)
-                exports.ready = true;
+                public.ready = true;
                 
         };
     }
     function nextStep() {
+
         if(user_sequence.length == cpu_sequence.length) {
-            exports.ready = false;
-            $('#step').html(step_number + 1);
+            public.ready = false;
+            $('#step').html(step_number);
             cpuSelect();
         }
         
@@ -54,11 +59,11 @@ Simon = (function() {
         }, interval);
     }
     function failedStep() {
-        exports.ready = false;
+        public.ready = false;
         $('.main_buttons').addClass('failed');
         if(is_strict) {
-            exports.reset();
-            exports.start();
+            public.reset();
+            public.start();
         }else {
             user_sequence = [];
             setTimeout(function() {
@@ -71,28 +76,29 @@ Simon = (function() {
         if(user[i] == cpu[i]) {
             nextStep();
         }else {
-            exports.ready = false;
+            public.ready = false;
             failedStep();
         }
     }
-    exports.ready = false;
-    exports.press = function(e) {
+    public.ready = false;
+    public.press = function(e) {
         sounds[e].play();
         user_sequence.push(e);
         compareSequence(user_sequence, cpu_sequence);
     }
-    exports.toggleStrict = function() {
-        return is_strict = !is_strict;
+    public.toggleStrict = function(bool) {
+        return is_strict = bool;
     }
-    exports.reset = function() {
+    public.reset = function() {
         step_number = 0;
+        $('#step').html('--');
         cpu_sequence = [];
         user_sequence = [];
     }
-    exports.start = function() {
+    public.start = function() {
         nextStep();
     }
-    return exports;
+    return public;
 })();
 
 $(document).ready(function() {
@@ -104,8 +110,10 @@ $(document).ready(function() {
         $('#start').disabled = false;
         Simon.reset();
     });
-    $('#strict').on('click', function() {
-        Simon.toggleStrict();
+    $('#strict_toggle .btn').on('click', function() {
+        $('#strict_toggle .btn').removeClass('active');
+        $(this).addClass('active');
+        Simon.toggleStrict($(this).data('strict'));
     });
     $('.sector').on('mousedown', function() {
         if(Simon.ready){

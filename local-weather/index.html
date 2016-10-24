@@ -1,40 +1,43 @@
 <html>
-    <head>
-        <title>Local Weather | gillisandrew</title>
-        <script src="../vendor/js/jquery-3.1.1.min.js" type="text/javascript"></script>
-        <script src="../vendor/js/bootstrap.min.js" type="text/javascript"></script>
-        <script src="index.js" type="text/javascript"></script>
-        <link rel="stylesheet" href="../vendor/css/bootstrap.min.css" type="text/css" />
-        <link rel="stylesheet" href="../vendor/css/font-awesome.min.css" type="text/css" />
-        <link rel="stylesheet" href="../vendor/css/weather-icons.css" type="text/css" />
-        <link rel="stylesheet" href="../vendor/css/weather-icons-wind.css" type="text/css" />
-        <link rel="stylesheet" href="index.css" type="text/css" />
-    </head>
-    <body>
-        <div class="container">
-            <h1>Local Weather</h1>
-            <div class="row">
-            <div class="col-md-4 text-center">
-                <div class="well weather">
-                    <div class="btn-group" role="group">
-                        <button id="F" type="button" class="btn btn-default btn-sm">&deg;F</button>
-                        <button id="C" type="button" class="btn btn-default active btn-sm">&deg;C</button>
-                    </div>
-                    <h2 id="city">&nbsp;</h2>
-                    <i id="icon" class="weathericon wi"></i>
-                    <i id="spinner" class="fa fa-spinner fa-pulse fa-5x"></i>
-                    <p>
-                        Temperature: <span id="temp"></span>
-                        <br> Wind: <span id="windStrength"></span> <i id="windDirection" class="windicon wi wi-wind"></i>
-                    </p>
-                        <button id="refresh" type="button" class="btn btn-lg btn-default btn-primary btn-block"><i class="wi wi-cloud-refresh fa-2x"></i><br />Refresh</button>
-                </div>
-            </div>
-            <div class="col-md-8">
-                <h2>Description</h2>
-                <p>This is a simple weather app created for the intermediate front-end Zipline at <a href="http://www.freecodecamp.com/challenges/zipline-show-the-local-weather">FreeCodeCamp.com</a></p>
-            </div>
-            </div>
-        </div>
-    </body>
+
+<head>
+	<title>Local Weather | gillisandrew</title>
+	<script src="../vendor/js/jquery-3.1.1.min.js" type="text/javascript"></script>
+	<script src="../vendor/js/bootstrap.min.js" type="text/javascript"></script>
+	<script src="index.js" type="text/javascript"></script>
+	<link rel="stylesheet" href="../vendor/css/bootstrap.min.css" type="text/css" />
+	<link rel="stylesheet" href="../vendor/css/font-awesome.min.css" type="text/css" />
+	<link rel="stylesheet" href="../vendor/css/weather-icons.css" type="text/css" />
+	<link rel="stylesheet" href="../vendor/css/weather-icons-wind.css" type="text/css" />
+	<link rel="stylesheet" href="index.css" type="text/css" />
+</head>
+
+<body>
+	<div class="container">
+		<h1>Local Weather</h1>
+		<div class="row">
+			<div class="col-md-4 text-center">
+				<div class="well weather">
+					<div class="btn-group" role="group">
+						<button id="F" type="button" class="btn btn-default btn-sm">&deg;F</button>
+						<button id="C" type="button" class="btn btn-default active btn-sm">&deg;C</button>
+					</div>
+					<h2 id="city">&nbsp;</h2>
+					<i id="icon" class="weathericon wi"></i>
+					<i id="spinner" class="fa fa-spinner fa-pulse fa-5x"></i>
+					<p>
+						Temperature: <span id="temp"></span>
+						<br> Wind: <span id="windStrength"></span> <i id="windDirection" class="windicon wi wi-wind"></i>
+					</p>
+					<button id="refresh" type="button" class="btn btn-lg btn-default btn-primary btn-block"><i class="wi wi-cloud-refresh fa-2x"></i><br />Refresh</button>
+				</div>
+			</div>
+			<div class="col-md-8">
+				<h2>Description</h2>
+				<p>This is a simple weather app created for the intermediate front-end Zipline at <a href="http://www.freecodecamp.com/challenges/zipline-show-the-local-weather">FreeCodeCamp.com</a></p>
+			</div>
+		</div>
+	</div>
+</body>
+
 </html>
