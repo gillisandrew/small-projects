@@ -13,7 +13,11 @@ var smallprojects = (function() {
         "title": "Random Quote Machine",
         "directory": "random-quote"
     }];
-
+    function htmlEncode(value){
+        //create a in-memory div, set it's inner text(which jQuery automatically encodes)
+        //then grab the encoded contents back out.  The div never exists on the page.
+        return $('<div/>').text(value).html();
+    }
     function fetchContent(i) {
         for(var j=0; j<resources.length; j++) {
             (function(i, j) {
@@ -39,7 +43,7 @@ var smallprojects = (function() {
             console.log(projects);
             $('#projects li.active').removeClass('active');
             $(this).parent('li').addClass('active');
-            $('#code pre').html(projects[$(this).data('project')][$('#code .active').data('content')])
+            $('#code pre').html(htmlEncode(projects[$(this).data('project')][$('#code .active').data('content')]));
         });
     });
 })();
