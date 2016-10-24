@@ -17,21 +17,18 @@ var smallprojects = (function() {
     for(var i = 0; i<projects.length; i++) {
         var item = '<li role="presentation"><a data-project="' + i + '" href="#'+ projects[i].directory +'">' + projects[i].title + '</a></li>';
         $(nav).append(item);
-
         for(var j=0; j<resources.length; j++) {
             $.get(projects[i].directory + '/index.' + resources[j], function(res) {
-                console.log(res);
+                projects[i][resources[j]] = res;
             });
         }
-        console.log(projects)
     }
     $(document).ready(function() {
-        
         $('#projects a').on('click', function() {
             console.log(projects);
-            // $('#projects li.active').removeClass('active');
-            // $(this).parent('li').addClass('active');
-            // $('#code pre').html(projects[$(this).data('project')][$('#code .active').data('content')])
+            $('#projects li.active').removeClass('active');
+            $(this).parent('li').addClass('active');
+            $('#code pre').html(projects[$(this).data('project')][$('#code .active').data('content')])
         });
     });
 })();
