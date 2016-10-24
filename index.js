@@ -26,7 +26,7 @@ var smallprojects = (function() {
                 lang= 'javascript'
                 break;
         }
-        return Prism.highlight(value, lang);
+        return Prism.highlight(value, Prism.languages[lang]);
     }
     function fetchContent(i) {
         for(var j=0; j<resources.length; j++) {
