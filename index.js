@@ -32,11 +32,11 @@ var smallprojects = (function() {
     });
 $(document).ready(function() {
     $(nav + ' li a').on('click', function(e) {
+        console.log(projects);
         $(nav + ' .active').removeClass('active');
         $(e).addClass('active');
         $('#code pre').html(projects[$(this).data('project')][$('#code .active').data('content')])
     });
-    console.log(projects)
 });
     
     
