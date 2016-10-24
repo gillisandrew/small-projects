@@ -14,14 +14,19 @@ var smallprojects = (function() {
         "directory": "random-quote"
     }];
 
-    for(var i = 0; i<projects.length; i++) {
-        var item = '<li role="presentation"><a data-project="' + i + '" href="#'+ projects[i].directory +'">' + projects[i].title + '</a></li>';
-        $(nav).append(item);
+    function fetchContent(i) {
         for(var j=0; j<resources.length; j++) {
             $.get(projects[i].directory + '/index.' + resources[j], function(res) {
                 projects[i][resources[j]] = res;
             });
         }
+    }
+
+    for(var i = 0; i<projects.length; i++) {
+        var item = '<li role="presentation"><a data-project="' + i + '" href="#'+ projects[i].directory +'">' + projects[i].title + '</a></li>';
+        $(nav).append(item);
+        fetchContent(i);
+        
     }
     $(document).ready(function() {
         $('#projects a').on('click', function() {
