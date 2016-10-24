@@ -16,10 +16,12 @@ var smallprojects = (function() {
     for(var i = 0; i<projects.length; i++) {
         var item = '<li role="presentation"><a data-project="' + i + '" href="#'+ projects[i].directory +'">' + projects[i].title + '</a></li>';
         $(nav).append(item)
-
-        projects[i]['HTML'] = $.getJSON(projects[i].directory + '/index.html').responseText;
-        projects[i]['JS'] = $.getJSON(projects[i].directory + '/index.js').responseText;
-        projects[i]['CSS'] = $.getJSON(projects[i].directory + '/index.css').responseText;
+        var html_file = $.getJSON(projects[i].directory + '/index.html');
+        var js_file = $.getJSON(projects[i].directory + '/index.js');
+        var css_file = $.getJSON(projects[i].directory + '/index.css');
+        projects[i]['HTML'] = html_file.responseText;
+        projects[i]['JS'] = js_file.responseText;
+        projects[i]['CSS'] = css_file.responseText;
     }
     $(document).ready(function() {
         
