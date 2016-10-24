@@ -1,5 +1,6 @@
 var smallprojects = (function() {
     var nav = "#projects";
+    var resources = ['html', 'js', 'css'];
     var projects = [{
         "title": "Server Information",
         "directory": "server-information"
@@ -15,13 +16,14 @@ var smallprojects = (function() {
 
     for(var i = 0; i<projects.length; i++) {
         var item = '<li role="presentation"><a data-project="' + i + '" href="#'+ projects[i].directory +'">' + projects[i].title + '</a></li>';
-        $(nav).append(item)
-        var html_file = $.getJSON(projects[i].directory + '/index.html');
-        var js_file = $.getJSON(projects[i].directory + '/index.js');
-        var css_file = $.getJSON(projects[i].directory + '/index.css');
-        projects[i]['HTML'] = html_file.responseText;
-        projects[i]['JS'] = js_file.responseText;
-        projects[i]['CSS'] = css_file.responseText;
+        $(nav).append(item);
+
+        for(var j=0; j<resources.length; j++) {
+            $.getJSON(projects[i].directory + '/index.' + resources[j], function(res) {
+                console.log(res);
+            });
+        }
+        console.log(projects)
     }
     $(document).ready(function() {
         
