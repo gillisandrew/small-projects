@@ -46,7 +46,6 @@ function unusualList(offset, reset_spot) {
     if(reset_spot) {
         spot = [''];
     }
-    console.log(spot)
     var remote = 'https://en.wikipedia.org/w/api.php/w/api.php?action=query&format=json&list=categorymembers&utf8=1&cmtitle=Category:Lists_of_things_considered_unusual' + offset + '&callback=?';
      $.ajax({
         url: remote,
@@ -54,7 +53,6 @@ function unusualList(offset, reset_spot) {
         type: 'GET',
         headers: { 'Api-User-Agent': 'FCC-WikipediaViewer/1.0 (gillis.andrew@gmail.com)' },
         success: function(data) {
-            console.log(data);
             $('.search-results').html('');
             for(var i=0; i < data.query.categorymembers.length; i++) {
                 $('.search-results').append('<a href="https://en.wikipedia.org/wiki/'+ data.query.categorymembers[i].title +'" class="list-group-item"><h4 class="list-group-item-heading">' + data.query.categorymembers[i].title + '</h4></a>')
@@ -99,19 +97,16 @@ function search(cleanInput, reset_spot) {
     if(reset_spot) {
         spot = [];
     }
-    console.log(spot)
     $.ajax({
         url: remote,
         dataType: 'json',
         type: 'GET',
         headers: { 'Api-User-Agent': 'FCC-WikipediaViewer/1.0 (gillis.andrew@gmail.com)' },
         success: function(data) {
-            console.log(data);
             displayResults(data.query.search);
             if(!spot[0]) {
                 spot[0] = cleanInput;
             }
-            console.log(spot);
             if(data.continue){
                 $('.pager .next_page').show();
                 $('.pager .next_page').off('click').click(function() {
