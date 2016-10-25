@@ -16,6 +16,10 @@ var smallprojects = (function() {
     {
         "title": "Pomodoro Clock",
         "directory": "pomodoro-clock"
+    },
+    {
+        "title": "Wikipedia Viewer",
+        "directory": "wikipedia-viewer"
     }];
     function htmlEncode(value, content){
         var lang = 'markup';

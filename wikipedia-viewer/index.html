@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>Wikipedia Viewer | gillisandrew</title>
+	<script src="../vendor/js/jquery-3.1.1.min.js" type="text/javascript"></script>
+	<script src="../vendor/js/bootstrap.min.js" type="text/javascript"></script>
+	<script src="index.js" type="text/javascript"></script>
+	<link rel="stylesheet" href="../vendor/css/bootstrap.min.css" type="text/css" />
+	<link rel="stylesheet" href="../vendor/css/font-awesome.min.css" type="text/css" />
+	<link rel="stylesheet" href="index.css" type="text/css" />
+</head>
+
+<body>
+    <div class="container">
+        <h1>Wikipedia Viewer</h1>
+        <div class="row">
+            <div class="col-md-4">
+                <div class="input-group">
+                    <input type="text" class="form-control search-field" placeholder="Search for...">
+                    <span class="input-group-btn">
+                        <button class="btn btn-primary search-submit" type="button"><i class="fa fa-search"></i></button>
+                    </span>
+                </div>
+                <br />
+                <a class="btn btn-primary btn-block btn-lg" href="https://en.wikipedia.org/wiki/Special:Random" >
+                    <i class="fa fa-random fa-2x"></i>
+                    <br />
+                    Random Article
+                </a>
+                <a class="btn btn-success btn-block btn-lg get-weird" href="javascript:void(0);" >
+                    <i class="fa fa-rocket fa-2x"></i>
+                    <br />
+                    Weird Articles
+                </a>
+            </div>
+            <div class="col-md-8">
+                <div class="list-group search-results">
+                </div>
+                <nav aria-label="..." class="pager">
+                    <ul class="pager">
+                        <li class="prev_page" style="display: none"><a href="#">Previous</a></li>
+                        <li class="next_page" style="display: none"><a href="#">Next</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
