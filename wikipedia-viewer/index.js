@@ -38,6 +38,9 @@ function displayResults(results) {
     for(var i=0; i < results.length; i++) {
         $('.search-results').append('<a href="https://en.wikipedia.org/wiki/'+ results[i].title +'" class="list-group-item"><h4 class="list-group-item-heading">' + results[i].title + '</h4><p class="list-group-item-text">' + results[i].snippet + '...</p></a>')
     }
+    if(results.length === 0) {
+        $('.search-results').append('<span class="text-muted">No results</span>');
+    }
 }
 
 var spot = [];
