@@ -12,6 +12,10 @@ var smallprojects = (function() {
     {
         "title": "Random Quote Machine",
         "directory": "random-quote"
+    },
+    {
+        "title": "Pomodoro Clock",
+        "directory": "pomodoro-clock"
     }];
     function htmlEncode(value, content){
         var lang = 'markup';

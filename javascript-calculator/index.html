@@ -17,38 +17,38 @@
 				<div class="col-sm-6">
 					<div class="panel panel-default">
 						<div class="panel-heading">
-							<input id="currentInput" type="text" class="form-control input-lg input-block-level text-right" value="0" readonly/>
+							<input id="output" type="text" class="form-control input-lg input-block-level text-right" value="0" readonly/>
 						</div>
 						<div class="panel-body">
 							<div class="container-fluid">
 								<div class="row no-gutters">
 									<div class="col-xs-3">
-										<button onClick="calculator('AC')" class="btn btn-danger btn-block" type="button">AC</button>
-										<button onClick="calculator(7)" class="btn btn-default btn-block" type="button">7</button>
-										<button onClick="calculator(4)" class="btn btn-default btn-block" type="button">4</button>
-										<button onClick="calculator(1)" class="btn btn-default btn-block" type="button">1</button>
-										<button onClick="calculator(0)" class="btn btn-default btn-block" type="button">0</button>
+										<button data-enter="AC" class="btn btn-danger btn-block" type="button">AC</button>
+										<button data-enter="7" class="btn btn-default btn-block" type="button">7</button>
+										<button data-enter="4" class="btn btn-default btn-block" type="button">4</button>
+										<button data-enter="1" class="btn btn-default btn-block" type="button">1</button>
+										<button data-enter="0" class="btn btn-default btn-block" type="button">0</button>
 									</div>
 									<div class="col-xs-3">
-										<button onClick="calculator('CE')" class="btn btn-danger btn-block" type="button">CE</button>
-										<button onClick="calculator(8)" class="btn btn-default btn-block" type="button">8</button>
-										<button onClick="calculator(5)" class="btn btn-default btn-block" type="button">5</button>
-										<button onClick="calculator(2)" class="btn btn-default btn-block" type="button">2</button>
-										<button onClick="calculator('=')" class="btn btn-success btn-block" type="button">=</button>
+										<button data-enter="CE" class="btn btn-danger btn-block" type="button">CE</button>
+										<button data-enter="8" class="btn btn-default btn-block" type="button">8</button>
+										<button data-enter="5" class="btn btn-default btn-block" type="button">5</button>
+										<button data-enter="2" class="btn btn-default btn-block" type="button">2</button>
+										<button data-enter="=" class="btn btn-success btn-block" type="button">=</button>
 									</div>
 									<div class="col-xs-3">
-										<button onClick="calculator('%')" class="btn btn-primary btn-block" type="button"> &#37;</button>
-										<button onClick="calculator(9)" class="btn btn-default btn-block" type="button">9</button>
-										<button onClick="calculator(6)" class="btn btn-default btn-block" type="button">6</button>
-										<button onClick="calculator(3)" class="btn btn-default btn-block" type="button">3</button>
-										<button onClick="calculator('.')" id="float" class="btn btn-default btn-block" type="button">.</button>
+										<button data-enter="%" class="btn btn-primary btn-block" type="button"> &#37;</button>
+										<button data-enter="9" class="btn btn-default btn-block" type="button">9</button>
+										<button data-enter="6" class="btn btn-default btn-block" type="button">6</button>
+										<button data-enter="3" class="btn btn-default btn-block" type="button">3</button>
+										<button data-enter="." id="float" class="btn btn-default btn-block" type="button">.</button>
 									</div>
 									<div class="col-xs-3">
-										<button onClick="calculator('^')" class="btn btn-primary btn-block" type="button">&#94;</button>
-										<button onClick="calculator('/')" class="btn btn-primary btn-block" type="button">&divide;</button>
-										<button onClick="calculator('x')" class="btn btn-primary btn-block" type="button">&#215;</button>
-										<button onClick="calculator('-')" class="btn btn-primary btn-block" type="button">&minus;</button>
-										<button onClick="calculator('+')" class="btn btn-primary btn-block" type="button">&#43;</button>
+										<button data-enter="^" class="btn btn-primary btn-block" type="button">&#94;</button>
+										<button data-enter="/" class="btn btn-primary btn-block" type="button">&divide;</button>
+										<button data-enter="x" class="btn btn-primary btn-block" type="button">&#215;</button>
+										<button data-enter="-" class="btn btn-primary btn-block" type="button">&minus;</button>
+										<button data-enter="+" class="btn btn-primary btn-block" type="button">&#43;</button>
 									</div>
 								</div>
 							</div>

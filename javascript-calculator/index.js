@@ -58,7 +58,7 @@ var calculator = (function($) {
         if(input.length > 1) {
             return evaluate();
         }else {
-            return display(true, input[0].value);
+            return display(false, input[0].value);
         }
     }
     function AC() {
@@ -92,13 +92,13 @@ var calculator = (function($) {
         return parseFloat(input[i-1].value + '.' + input[i+1].value);
     }
     function display(reset, value) {
-        if(reset) {
-            $(output).html(value);
+        if(reset && $(output).attr('value') != 0) {
+            $(output).attr('value', $(output).attr('value').toString() + value);
         }else {
-            $(output).append(value);
+            $(output).attr('value', value);
         }
     }
-    public.enter = function(value) {
+    function checkValue(value) {
         if(isNaN(value)) {
             input.push({
                 value: value,
@@ -106,9 +106,9 @@ var calculator = (function($) {
             });
             if(value == '.') {
                 floating === true;
-                display(false, input.last().value);
+                display(true, input.last().value);
             }else {
-                display(true, '');
+                display(false, '');
             }
         }else {
             if(input.last().type == 'operand') {
@@ -123,8 +123,14 @@ var calculator = (function($) {
         }
         return input;
     }
+    public.enter = function(v) {
+        if(v == '=') {
+            return evaluate();
+        }else {
+            return checkValue(v);
+        }
+    }
     AC();
-    public.eval = evaluate;
     return public;
 })(jQuery);
 
