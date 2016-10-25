@@ -5,6 +5,6 @@ count=0
 while [ "x${PROJECTS[count]}" != "x" ]
 do
    page="http://gillisandrew.me/small-projects/${PROJECTS[count]}"
-   pageres   $page --filename="${PROJECTS[count]}/index" --no-crop
+   pageres   $page --filename="${PROJECTS[count]}/index" --crop
    count=$(( $count + 1 ))
 done
