@@ -93,4 +93,7 @@ var smallprojects = (function() {
             $('#projects a[data-project="' + window.location.hash.slice(1, window.location.hash.length) + '"]').click();
         }
     });
+    if(true){
+
+    }
 })();
